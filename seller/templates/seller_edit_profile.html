@@ -1,0 +1,83 @@
+{% extends 'seller_header.html' %}
+{% load static %}
+
+{% block content %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Edit Profile</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Edit Profile</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+
+    <form action="{% url 'seller_edit_profile' %}" method="post"
+    enctype="multipart/form-data">
+    {% csrf_token %}
+    {{msg}}
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">General</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <h6> First Name</h6>
+                  <input type="text" id="inputClientCompany" class="form-control" name="first_name" value="{{s_data.first_name}}">
+                </div>
+              <div class="form-group">
+                <h6> Last Name</h6>
+                  <input type="text" id="inputClientCompany" class="form-control" name="last_name" value="{{s_data.last_name}}">
+                </div>
+              <div class="form-group">
+                <h6> Address</h6>
+                  <input type="text" id="inputClientCompany" class="form-control" name="address" value="{{s_data.address}}">
+                </div>
+              <div class="form-group">
+              <h6> Gender</h6>
+                <input type="text" id="inputClientCompany" class="form-control" name="gender" value="{{s_data.gender}}">
+              </div>
+              <div class="form-group">
+                <h6> Profile Pic</h6>        
+                <input type="file" id="inputProjectLeader" class="form-control"  name="pic" value="">
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <input type="submit" value="Save Changes" class="btn btn-success ">
+        </div>
+      </div>
+    
+    </section>
+  </form>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{% endblock %}
